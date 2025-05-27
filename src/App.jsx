@@ -6,10 +6,11 @@ import { Form } from "./components/Form/Form";
 import { Title } from "./components/Title/Title";
 import { BooksList } from "./components/BooksList/BooksList";
 import { ErrorMessage } from "./components/ErrorMessage/ErrorMessage";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const [books, setBooks] = useState([]);
-  const [bookName, setBookName] = useState("All");
+  const [bookName, setBookName] = useState("Java Script");
   const [error, setError] = useState("");
   const [load, setLoad] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -66,8 +67,10 @@ function App() {
     console.log(book);
     setIdFavorite((prev) => {
       if (prev.includes(id)) {
+        toast.error("Book was removed from favorite!");
         return prev.filter((i) => i !== id);
       }
+      toast.success("Book was added to favorite!");
       return [id, ...prev];
     });
     setFavorite((prev) => {
@@ -86,6 +89,7 @@ function App() {
 
   return (
     <>
+      <Toaster />
       <Title title="Find Your Book" className="title" />
       <Form handleSubmit={handleSubmit} className="form" />
       {favorite.length > 0 && (
