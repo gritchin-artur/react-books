@@ -1,0 +1,26 @@
+:root {
+  --neon-pink: #ff00ff;
+  --neon-cyan: #00ffff;
+  --neon-purple: #9b30ff;
+  --dark-bg: #1a1a2a;
+  --text-light: #fff;
+  --shadow: 0 0 5px var(--neon-cyan), 0 0 2px var(--neon-pink);
+  --font-family: "Orbitron", "sans-serif";
+}
+
+* {
+  --margin: 0;
+  --padding: 0;
+  --box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, var(--dark-bg), #2a2c3a);
+  color: var(--text-light);
+  font-family: var(--font-family);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
