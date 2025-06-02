@@ -1,3 +1,4 @@
+import { ButtonBack } from "../ButtonBack/ButtonBack";
 import "./ErrorMessage.css";
 
 export const ErrorMessage = ({ message, className }) => {
@@ -18,6 +19,7 @@ export const ErrorMessage = ({ message, className }) => {
         />
       </svg>
       <span>{message}</span>
+      {message === "Not found" && <ButtonBack path="/" text="To home page" />}
     </div>
   );
 };

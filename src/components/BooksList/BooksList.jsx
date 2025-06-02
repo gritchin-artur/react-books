@@ -1,22 +1,26 @@
+import { useLocation } from "react-router-dom";
+import useBookContext from "../../hooks/useBookContext";
 import { Book } from "../Book/Book";
 import "./BooksList.css";
 
-export const BooksList = ({
-  books,
-  handleClickToFavorite,
-  idFavorite,
-  className,
-}) => {
+export const BooksList = ({ className }) => {
+  const { books, idFavorite } = useBookContext();
+
+  const location = useLocation();
+
+  const getArray = () => {
+    if (location.pathname === "/favorites") {
+      return idFavorite.favoriteBooks;
+    }
+    if (location.pathname === "/") {
+      return books;
+    }
+  };
+
   return (
     <ul className={className}>
-      {books.map((book, index) => (
-        <Book
-          key={index}
-          book={book}
-          handleClickToFavorite={handleClickToFavorite}
-          idFavorite={idFavorite}
-          className={`${className}-element`}
-        />
+      {getArray().map((book, index) => (
+        <Book key={index} book={book} className={`${className}-element`} />
       ))}
     </ul>
   );

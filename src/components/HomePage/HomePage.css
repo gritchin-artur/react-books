@@ -1,0 +1,16 @@
+.home-page {
+  padding: 20px;
+  text-align: center;
+}
+
+.home-page .title {
+  margin-bottom: 20px;
+}
+
+.home-page .form {
+  margin-bottom: 20px;
+}
+
+.home-page .books {
+  margin-top: 20px;
+}
